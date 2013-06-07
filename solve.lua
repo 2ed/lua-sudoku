@@ -50,7 +50,7 @@ h = {
 
 
 
-zeros = function (t)
+zeros = function (t) -- Fills in a table with zero indexes.
 	local z = {}
 	for i = 1,9 do
 		for j = 1,9 do 
@@ -62,11 +62,11 @@ zeros = function (t)
 	return z
 end
 
-howmany = function (s,simb)
+howmany = function (s,symb) -- Returns number of occurrences in a string.
 	local n = 0
 	if s then 
-	while s:find(simb) do
-		s = s:sub(s:find(simb)+1,s:len())
+	while s:find(symb) do
+		s = s:sub(s:find(symb)+1,s:len())
 		n = n+1
 	end	
 	end
@@ -75,7 +75,7 @@ howmany = function (s,simb)
 	end
 end
 
-check = function (t,n,deep)
+check = function (t,n,deep) -- Check whether value can be placed at "n".
 	local sr,sc,sq, s ='','','','123456789'
 	for i = 1,9 do 
 		local res = s:find(t[math.floor(n/10)][i])
@@ -119,7 +119,7 @@ end
 
 
 
-function pr(a)
+function pr(a) -- Prints out the matrix.
 	for j = 1,9 do 
 		for i = 1,9 do
 			io.write (' ' ..a[j][i])
@@ -136,7 +136,7 @@ function pr(a)
 	print()
 end 
 
-solveonce = function (a)
+solveonce = function (a) -- Full matrix check.
 	local result = nil
 	for m, i in pairs(z) do 
 		n = check(a,i)
@@ -175,5 +175,5 @@ printe = function (a)
 	pr(a)
 end
 
-printe (c)
+printe (a)
 
